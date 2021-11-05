@@ -59,6 +59,8 @@ func orderHandler(c *gin.Context) {
 
 func jwtAuthMiddleware() func(c *gin.Context) {
 	return func(c *gin.Context) {
+		//标准做法： Authorization: Bearer <token>
+		//这里简化了
 		token := c.Request.Header.Get("token")
 		if token == "" {
 			c.JSON(http.StatusForbidden, "empty token")
