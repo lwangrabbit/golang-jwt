@@ -24,7 +24,6 @@ func GenToken(userId uint64) (string, error) {
 			Issuer:    "TEST001",
 		},
 	}
-	//token := jwt.NewWithClaims(jwt.SigningMethodES256, c)
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, c)
 	return token.SignedString(secret)
 }
